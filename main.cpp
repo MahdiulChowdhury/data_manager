@@ -5,8 +5,9 @@ using namesapce std;
 
 int main(){
 
-    baseClass *obj = new dataProcessing(); 
-    obj->senderID(1); 
-    obj->receiverID(1); 
+    baseClass *obj = new dataProcessing(1,2,10,"sensor_payload"); 
+    obj->setMessageID(1); 
+    obj->setSenderID(2); 
+    obj->setSenderID(3); 
     return 0; 
 }

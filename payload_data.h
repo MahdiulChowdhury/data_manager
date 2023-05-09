@@ -30,16 +30,19 @@ class payloadData : public baseClass{
             // value  < 2^3 if payload_length is 3 0...7
             // value < 2^32 
         }
-        void setLight(uint8_t light){ }
-        uint8_t getLight(){return light;}
-        void setCamera(uint8_t light){ }
-        uint8_t getCamera(){return camera;}
-        void setAction(uint8_t action){ }
-        uint8_t getCamera(){return action;}
-        void setName(uint8_t name){ }
-        string getName(){return name;}
+        void setLight(uint8_t light);
+        uint8_t getLight();
 
-        baseClass::send(light,camera,action,name);
+        void setCamera(uint8_t camera);
+        uint8_t getCamera();
+
+        void setAction(uint8_t action);
+        uint8_t getAction();
+
+        void setName(string name);
+        string getName();
+
+        baseClass::send(uint8_t light, uint8_t camera, uint8_t action, string name);
         // baseClass::recieve(light,camera,action,name);
 }
 
