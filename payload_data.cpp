@@ -34,13 +34,16 @@ void payloadData::recieve(std::string data) {
     //"0001 02 03 00000008 00")
     // "1210Camera_Payload"
     // obj2.recieve("110010101111"); 
-
+    // data = "118A"
     string byte_1 = data.substr(0,1);
     string byte_2 = data.substr(1,1);
-    string byte_3 = data.substr(2,2);
-    string byte_4 = data.substr(8,(data.length() - 7));
-    light_ = (std::stoi(byte_1.c_str())); 
-    camera_ = (std::stoi(byte_2.c_str()));
+    string byte_3 = data.substr(2,1);
+    string byte_4 = data.substr(3,(data.length() - 2));
+    // light_ = (std::stoi(byte_1.c_str())); 
+    // camera_ = (std::stoi(byte_2.c_str()));
+    // int number = atoi(byte_3.c_str());
+    action_ = (uint8_t) strtol(byte_3.c_str(), nullptr, 16);
+    cout<<unsigned(action_)<<endl; 
     // std::vector<uint8_t> myVector(byte_3.begin(), byte_3.end());
     // action_= &myVector[0];
    

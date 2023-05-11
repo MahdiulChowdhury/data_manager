@@ -13,8 +13,8 @@ int main(){
     obj2.setReceiverID(3);
     obj2.send(); 
     // obj2.recieve("1110Camera_Payload"); 
-    // obj2.recieve("110010101111"); 
-    obj2.recieve("1110sensor_payload"); 
+    obj2.recieve("118AB"); 
+    // obj2.recieve("1110sensor_payload"); 
 
     cout<<endl; 
     cout<<"......Payload information........................."<<endl; 
