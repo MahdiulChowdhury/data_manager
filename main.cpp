@@ -6,14 +6,19 @@ using namespace std;
 
 int main(){
 
-    baseClass obj(); 
+    
     payloadData obj2(1,1,10,"sensor_payload");  
     obj2.setMessageID(1);
     obj2.setSenderID(2);
     obj2.setReceiverID(3);
-    obj2.send(); 
+    // obj2.send();
+
+    baseClass *ptr; 
+    ptr = &obj2;
+    ptr->recieve("010108AB"); 
+    
     // obj2.recieve("1110Camera_Payload"); 
-    obj2.recieve("118AB"); 
+    // obj2.recieve("010108AB");  //010108AB
     // obj2.recieve("1110sensor_payload"); 
 
     cout<<endl; 

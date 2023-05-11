@@ -26,7 +26,7 @@ std::string payloadData::send() {
     // cout<<"sending payload to base class"<<endl; 
     std::string payload = (std::to_string(light_) + std::to_string(camera_) + std::to_string(action_) + name_);
     baseClass::setPayload(payload);
-    baseClass::send(); 
+    // baseClass::send(); 
     return payload;
 }
 
@@ -35,7 +35,11 @@ void payloadData::recieve(std::string data) {
     // "1210Camera_Payload"
     // obj2.recieve("110010101111"); 
     // data = "118A"
-    string byte_1 = data.substr(0,1);
+
+    // "010108AB"
+    cout<<"test derived"<<endl;
+    cout<<"message id::"<< getMessageID() << endl; 
+    string byte_1 = data.substr(0,2);
     string byte_2 = data.substr(1,1);
     string byte_3 = data.substr(2,1);
     string byte_4 = data.substr(3,(data.length() - 2));
