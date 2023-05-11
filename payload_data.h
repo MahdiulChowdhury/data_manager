@@ -45,6 +45,7 @@ class payloadData: public baseClass{
         std::string getName();
 
         std::string send(); 
+        void recieve(std::string  data);
         
        
 };

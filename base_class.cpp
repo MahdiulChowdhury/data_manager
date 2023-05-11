@@ -1,4 +1,5 @@
 #include "base_class.h"
+#include <sstream>
 
 using namespace std;
 
@@ -24,9 +25,12 @@ std::string baseClass::send(){
     uint8_t sender_id = getSenderID();
     uint8_t reciever_id = getReceiverID();
     std::string payload = getPayload(); 
-    cout<<"payload from base class " << payload << endl; 
+    payload_length_ = payload.length();
 
+    uint8_t message_id_hex_format = static_cast<uint8_t>(sender_id_ & 0xFF);
 
+    string result = std::to_string(message_id)+std::to_string(sender_id)+std::to_string(reciever_id)+std::to_string(payload_length_)+payload;
+    
     // // payload = (std::to_string(payload_1) + std::to_string(payload_2) + std::to_string(payload_3) + payload_4);
     // payload_length = length(payload);
 
@@ -42,11 +46,15 @@ std::string baseClass::send(){
     // //string data = “ffbb660100000002”; 
     // string result = 0x0001 02 03 00000008 00
     // return string; 
-    return "0";
+
+    
+    // cout << (data >> 4) << endl; 
+    cout<<result<<endl; 
+    return result;
 
 }
 
-void baseClass::recieve(string data){
+void baseClass::recieve(std::string  data){
     // data = [msg_id+sender_id+reciever_id+payload_length+payload]  
-    
+   
 }
