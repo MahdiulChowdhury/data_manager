@@ -17,7 +17,7 @@ uint8_t baseClass::getSenderID() {return sender_id_;}
 uint8_t baseClass::getReceiverID() {return reciever_id_;}
 uint32_t baseClass::getPayloadLength() {return payload_length_;}
 
-std::string baseClass::setPayload() {return payload_;}
+std::string baseClass::getPayload() {return payload_;}
 
 string baseClass::send(){
     // uint16_t message_id = getMessageID();

@@ -36,7 +36,7 @@ class baseClass{
         uint8_t getSenderID();
         uint8_t getReceiverID();
         uint32_t getPayloadLength();
-        std::string setPayload();
+        std::string getPayload();
 
         virtual std::string send();
         virtual void recieve(std::string data);

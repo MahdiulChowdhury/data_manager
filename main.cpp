@@ -12,7 +12,12 @@ int main(){
     cout<<"LIGHT::"<<obj2.getLight()<<endl; 
     cout<<"CAMERA::"<<obj2.getCamera()<<endl;
     cout<<"ACTION::"<<unsigned(obj2.getAction())<<endl;
-    cout<<"PAYLOAD::"<<obj2.getName()<<endl;
+    cout<<"PAYLOAD_NAME::"<<obj2.getName()<<endl;
 
+    cout<<"MESSAGE ID::"<<obj2.getMessageID()<<endl; 
+    cout<<"RECEIVER ID::"<<obj2.getReceiverID()<<endl; 
+    cout<<"SENDER ID::"<<obj2.getSenderID()<<endl; 
+    cout<<"PAYLOAD LENGTH::"<<obj2.getPayloadLength()<<endl;
+    cout<<"PAYLOAD::"<<obj2.getPayload()<<endl;
     return 0; 
 }
