@@ -9,9 +9,6 @@ payloadData::payloadData(bool light,bool camera,uint8_t action,string name){
     setCamera(camera);
     setAction(action);
     setName(name);
-    // baseClass::setMessageID(1);
-    // baseClass::sender_id_(2);
-    // baseClass::reciever_id_(3);
 }
 
 void payloadData::setLight(bool light){light_=light;}
