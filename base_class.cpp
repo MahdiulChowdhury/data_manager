@@ -6,7 +6,7 @@ baseClass::baseClass(){
     cout<<"base class"<<endl;
 }
 
-void baseClass::setMessageID(uint16_t message_id) {message_id_ = message_id; cout<< "message id ::"<<message_id_<<endl;}
+void baseClass::setMessageID(uint16_t message_id) {message_id_ = message_id;}
 void baseClass::setSenderID(uint8_t sender_id) {sender_id_ = sender_id;}
 void baseClass::setReceiverID(uint8_t reciever_id) {reciever_id_ = reciever_id;}
 void baseClass::setPayloadLength(uint32_t payload_length) {payload_length_ = payload_length;}
@@ -19,10 +19,13 @@ uint32_t baseClass::getPayloadLength() {return payload_length_;}
 
 std::string baseClass::getPayload() {return payload_;}
 
-string baseClass::send(){
-    // uint16_t message_id = getMessageID();
-    // uint8_t sender_id = getSenderID();
-    // uint8_t reciever_id = getReceiverID();
+std::string baseClass::send(){
+    uint16_t message_id = getMessageID();
+    uint8_t sender_id = getSenderID();
+    uint8_t reciever_id = getReceiverID();
+    std::string payload = getPayload(); 
+    cout<<"payload from base class " << payload << endl; 
+
 
     // // payload = (std::to_string(payload_1) + std::to_string(payload_2) + std::to_string(payload_3) + payload_4);
     // payload_length = length(payload);

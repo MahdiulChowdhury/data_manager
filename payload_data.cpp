@@ -21,9 +21,10 @@ bool payloadData::getCamera(){return camera_;}
 uint8_t payloadData::getAction(){return action_;}
 std::string payloadData::getName(){return name_;}
 
-// string baseClass::send() {
-//     // cout<<"sending payload to base class"<<endl; 
-//     // payload = (std::to_string(light) + std::to_string(camera) + std::to_string(action) + name);
-//     // baseClass::setPayload(payload);
-//     // return payload; 
-// }
+std::string payloadData::send() {
+    // cout<<"sending payload to base class"<<endl; 
+    std::string payload = (std::to_string(light_) + std::to_string(camera_) + std::to_string(action_) + name_);
+    baseClass::setPayload(payload);
+    baseClass::send(); 
+    return payload;
+}

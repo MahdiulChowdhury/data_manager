@@ -43,9 +43,10 @@ class payloadData: public baseClass{
 
         void setName(std::string name);
         std::string getName();
-        // string payload(); 
+
+        std::string send(); 
         
-        // baseClass::recieve(light,camera,action,name);
+       
 };
 
 
