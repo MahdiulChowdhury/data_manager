@@ -6,17 +6,6 @@
 #include <sstream>
 #include <iostream> 
 #include <cmath>
-
-//string data = “ffbb 66 01 00000002”
-// Implement a C++ class that can be used as the base class to develop specific messages later. This class
-// should have the following features:
-//  Initialization of common fields.
-//  Access method for each and every common field.
-//  A virtual Send function that returns a string containing the message to be sent.
-//  A virtual Receive function that accepts a string containing the message received, and populates
-// the values of the common fields.
-
-
 class baseClass{
     private: 
         uint16_t message_id_; 
