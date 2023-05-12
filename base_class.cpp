@@ -9,7 +9,12 @@ void baseClass::setMessageID(uint16_t message_id) {message_id_ = message_id;}
 void baseClass::setSenderID(uint8_t sender_id) {sender_id_ = sender_id;}
 void baseClass::setReceiverID(uint8_t reciever_id) {reciever_id_ = reciever_id;}
 void baseClass::setPayloadLength(uint32_t payload_length) {payload_length_ = payload_length;}
-void baseClass::setPayload(std::string payload) {payload_ = payload;}
+void baseClass::setPayload(std::string payload) {
+    if(payload.length()<=72){
+        payload_ = payload;
+    }
+    else cout<<"[INFO:Payload size out of bound]";
+}
 
 uint16_t baseClass::getMessageID() {return message_id_;}
 uint8_t baseClass::getSenderID() {return sender_id_;}
