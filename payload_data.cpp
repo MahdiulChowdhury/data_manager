@@ -32,10 +32,7 @@ std::string payloadData::send() {
    
     uint32_t payload_length = payload.length();
     baseClass::setPayloadLength(payload_length);
-    uint8_t message_id_hex_format = static_cast<uint8_t>(sender_id & 0xFF);
-
-    cout<<"test"<< unsigned (message_id_hex_format)<<endl; 
-
+    
     string result = std::to_string(message_id)+std::to_string(sender_id)+std::to_string(reciever_id)+std::to_string(payload_length)+payload;
     return result;
 }
