@@ -44,10 +44,10 @@ std::string payloadData::send() {
 
 void payloadData::recieve(std::string data) {
 
- 
+    // "01 01 08AB"
     bool light;
     bool camera;
-    string payload_data = data.substr(16,data.length());
+    string payload_data = data.substr(15,data.length());
     string payload_byte_1 = payload_data.substr(0,2);
     string payload_byte_2 = payload_data.substr(2,2);
     string payload_byte_3 = payload_data.substr(4,2);
@@ -62,16 +62,12 @@ void payloadData::recieve(std::string data) {
     }
     name_ = payload_byte_4; 
 
-
     string common_fields = data.substr(0,16);
-    cout<<"size"<<common_fields.length()<<endl; 
-    string common_byte_1 = data.substr(0,4);
-    cout<<"size"<<common_byte_1.length()<<endl; 
-    string common_byte_2 = data.substr(4,2);
-    string common_byte_3 = data.substr(6,2);
-    string common_byte_4 = data.substr(8,8);
+    string common_byte_1 = common_fields.substr(0,4);
+    string common_byte_2 = common_fields.substr(4,2);
+    string common_byte_3 = common_fields.substr(6,2);
+    string common_byte_4 = common_fields.substr(8,14);
+    cout<<"test "<<common_byte_4<<endl; 
     
-    uint16_t msg_id = (uint16_t) strtol(common_byte_1.c_str(), nullptr, 16);
-    baseClass::setMessageID(msg_id);
     
 }

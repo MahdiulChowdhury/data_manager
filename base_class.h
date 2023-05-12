@@ -5,7 +5,7 @@
 #include <string>
 #include <sstream>
 #include <iostream> 
-
+#include <cmath>
 
 //string data = “ffbb 66 01 00000002”
 // Implement a C++ class that can be used as the base class to develop specific messages later. This class

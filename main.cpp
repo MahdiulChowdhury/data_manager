@@ -17,7 +17,7 @@ int main(){
     ptr = &obj2;
     // std::string message = ptr->send(); 
     // ptr->recieve("010108AB"); 
-    ptr->recieve("000400200000008010108AB");
+    ptr->recieve("0001020400000008010108AB");
     
     // obj2.recieve("1110Camera_Payload"); 
     // obj2.recieve("010108AB");  //010108AB
