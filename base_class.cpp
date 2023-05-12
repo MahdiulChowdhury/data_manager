@@ -54,8 +54,4 @@ std::string baseClass::send(){
 
 }
 
-void baseClass::recieve(std::string  data){
-    cout<<"test base"<<endl;
-    // data = [msg_id+sender_id+reciever_id+payload_length+payload]  
-   
-}
+void baseClass::recieve(std::string  data){}

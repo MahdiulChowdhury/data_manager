@@ -1,6 +1,7 @@
 #include "payload_data.h"
 #include <iostream> 
 #include <vector> 
+#include <boost/lexical_cast.hpp>
 
 using namespace std;
 
@@ -31,26 +32,23 @@ std::string payloadData::send() {
 }
 
 void payloadData::recieve(std::string data) {
-    //"0001 02 03 00000008 00")
-    // "1210Camera_Payload"
-    // obj2.recieve("110010101111"); 
-    // data = "118A"
 
-    // "010108AB"
-    cout<<"test derived"<<endl;
-    cout<<"message id::"<< getMessageID() << endl; 
+    // "01 01 08AB"
+    bool light;
+    bool camera;
     string byte_1 = data.substr(0,2);
-    string byte_2 = data.substr(1,1);
-    string byte_3 = data.substr(2,1);
-    string byte_4 = data.substr(3,(data.length() - 2));
-    // light_ = (std::stoi(byte_1.c_str())); 
-    // camera_ = (std::stoi(byte_2.c_str()));
-    // int number = atoi(byte_3.c_str());
+    string byte_2 = data.substr(2,2);
+    string byte_3 = data.substr(4,2);
+    string byte_4 = data.substr(6,(data.length() - 6)); 
     action_ = (uint8_t) strtol(byte_3.c_str(), nullptr, 16);
-    cout<<unsigned(action_)<<endl; 
-    // std::vector<uint8_t> myVector(byte_3.begin(), byte_3.end());
-    // action_= &myVector[0];
-   
+    try {
+        light_ = boost::lexical_cast<bool>(byte_1);
+        camera_ = boost::lexical_cast<bool>(byte_2);
+    }
+    catch (boost::bad_lexical_cast const &e){
+        cout << "[INFO:- expected 1 bit..0/1]" << endl;
+    }
+    name_ = byte_4; 
 
-    baseClass::recieve(data);
+    
 }
