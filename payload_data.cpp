@@ -47,7 +47,8 @@ void payloadData::recieve(std::string data) {
     // "01 01 08AB"
     bool light;
     bool camera;
-    string payload_data = data.substr(15,data.length());
+    string payload_data = data.substr(16,data.length());
+    cout<<"test::" << payload_data << endl; 
     string payload_byte_1 = payload_data.substr(0,2);
     string payload_byte_2 = payload_data.substr(2,2);
     string payload_byte_3 = payload_data.substr(4,2);
@@ -67,7 +68,16 @@ void payloadData::recieve(std::string data) {
     string common_byte_2 = common_fields.substr(4,2);
     string common_byte_3 = common_fields.substr(6,2);
     string common_byte_4 = common_fields.substr(8,14);
-    cout<<"test "<<common_byte_4<<endl; 
     
+    uint16_t message_id = (uint8_t) strtol(common_byte_1.c_str(), nullptr, 16);
+    uint8_t sender_id = (uint8_t) strtol(common_byte_2.c_str(), nullptr, 16);
+    uint8_t reciever_id = (uint8_t) strtol(common_byte_3.c_str(), nullptr, 16);
+    uint16_t payload_length = (uint8_t) strtol(common_byte_4.c_str(), nullptr, 16);
+
+    baseClass::setMessageID(message_id);
+    baseClass::setSenderID(sender_id);
+    baseClass::setReceiverID(reciever_id);
+    baseClass::setPayloadLength(payload_length);
+    baseClass::setPayload(payload_data);
     
 }
