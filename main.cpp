@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
 
-    
+    std::string message ="";
     payloadData obj2(1,1,10,"sensor_payload");  
     obj2.setMessageID(1);
     obj2.setSenderID(2);
@@ -15,7 +15,9 @@ int main(){
 
     baseClass *ptr; 
     ptr = &obj2;
-    ptr->recieve("010108AB"); 
+    // std::string message = ptr->send(); 
+    // ptr->recieve("010108AB"); 
+    ptr->recieve("000400200000008010108AB");
     
     // obj2.recieve("1110Camera_Payload"); 
     // obj2.recieve("010108AB");  //010108AB
@@ -34,6 +36,9 @@ int main(){
     cout<<"RECEIVER ID::"<<unsigned(obj2.getReceiverID())<<endl; 
     cout<<"PAYLOAD LENGTH::"<<obj2.getPayloadLength()<<endl;
     cout<<"PAYLOAD::"<<obj2.getPayload()<<endl;
+    cout<<"MESSAGE::"<<message<<endl; 
+
+    // ptr->recieve("0001 02 02 00000008  010108AB"); 
 
     return 0; 
 }
